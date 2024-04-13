@@ -1,0 +1,49 @@
+@use './constants' as *;
+
+@mixin box-shadow() {
+  box-shadow:
+    0 0 0 1px $color-primary,
+    0 0 0 3px $color-secondary;
+}
+
+@mixin mobile() {
+  @media screen and (width <= 480px) {
+    @content;
+  }
+}
+
+@mixin larger-mobile() {
+  @media screen and (width > 480px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media screen and (width >= 768px) {
+    @content;
+  }
+}
+
+@mixin laptop() {
+  @media screen and (width >= 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (width >= 1440px) {
+    @content;
+  }
+}
+
+@mixin desktop-large() {
+  @media screen and (width >= 1920px) {
+    @content;
+  }
+}
+
+@mixin container() {
+  width: 90%;
+  max-width: 1080px;
+  margin: auto;
+}

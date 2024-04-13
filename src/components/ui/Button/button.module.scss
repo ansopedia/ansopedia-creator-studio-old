@@ -1,0 +1,62 @@
+@use '../../../styles' as *;
+
+@mixin button-styles {
+  font-size: $font-size-18;
+  font-style: normal;
+  font-weight: $font-weight-400;
+  line-height: normal;
+  text-align: center;
+  background-color: $color-white;
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  padding: $padding-8 $padding-40;
+}
+
+.contained {
+  @include button-styles;
+
+  background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
+  background-size: 200% auto;
+  border-radius: $border-radius-20;
+  color: $color-white;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-position: right center;
+    box-shadow: $box-shadow;
+  }
+
+  &:focus {
+    @include box-shadow;
+  }
+}
+
+.outlined {
+  @include button-styles;
+
+  border-radius: $border-radius-20;
+  box-shadow: 0 0 0 2px $color-secondary;
+  color: $color-primary;
+  transition: all 0.4s ease-in-out;
+
+  &:hover,
+  &:focus {
+    @include box-shadow;
+  }
+}
+
+.text {
+  @include button-styles;
+
+  border-radius: $border-radius-8;
+  color: $color-primary;
+  background-color: $color-transparent;
+
+  &:hover,
+  &:focus {
+    border-radius: $border-radius-8;
+    background-color: $color-primary-light;
+  }
+}
