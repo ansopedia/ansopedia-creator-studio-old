@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["stylelint", "stylint"]
+  "cSpell.words": ["Ansopedian", "legendapp", "Parens", "stylelint", "usehooks"],
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "less", "postcss", "scss"],
+  "stylelint.snippet": ["css", "less", "postcss", "scss"],
+  "stylelint.packageManager": "pnpm"
 }
