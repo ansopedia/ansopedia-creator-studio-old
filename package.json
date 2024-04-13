@@ -3,22 +3,50 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build && eslint --max-warnings=0 .",
+    "build:local": "pnpm prettier:fix && pnpm lint:style && next build",
+    "dev": "next dev && eslint --max-warnings=0 .",
+    "lint:staged": "lint-staged",
+    "lint": "next lint",
+    "lint:style": "stylelint --allow-empty-input \"**/*.scss\"",
+    "lint:style:fix": "stylelint --fix \"**/*.scss\"",
+    "prepare": "husky",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "start": "next start"
   },
   "dependencies": {
+    "@legendapp/state": "^2.1.12",
+    "axios": "^1.6.8",
+    "next": "14.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.1"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.1"
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "sass": "^1.75.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript": "^5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,md}": [
+      "prettier --write .",
+      "eslint --fix ."
+    ]
   }
 }
